@@ -1,3 +1,5 @@
+// ToDo App.tsx
+/*
 import { useState } from 'react';
 
 type Todo = {
@@ -52,6 +54,36 @@ export default function App() {
               )
             }
               
+        </div>
+    )
+}
+*/
+
+
+
+// MovieList App.tsx
+
+import { useState } from 'react';
+import type { Movie } from './Movie';
+import MovieList from './MovieList';
+import WatchList from './WatchList';
+
+export default function App() {
+    const [watchlist, setWatchlist] = useState<Movie[]>([]);
+
+    const handleAdd = (movie: Movie) => {
+        setWatchlist([...watchlist, movie]);
+    };
+
+    const handleRemove = (id: number) => {
+        setWatchlist(watchlist.filter(movie => movie.id !== id));
+    };
+
+    return (
+        <div>
+            <h1>Movie Watchlist</h1>
+            <MovieList onAdd={handleAdd} />
+            <WatchList watchlist={watchlist} onRemove={handleRemove} />
         </div>
     )
 }

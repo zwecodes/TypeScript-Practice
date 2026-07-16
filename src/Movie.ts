@@ -5,5 +5,3 @@ export type Movie = {
     director: string;
     year: number;
 };
-
-export type WatchlistItem = Movie;

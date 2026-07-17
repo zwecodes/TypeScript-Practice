@@ -62,7 +62,7 @@ export default function App() {
 
 
 // MovieList App.tsx
-
+/*
 import { useState } from 'react';
 import type { Movie } from './Movie';
 import MovieList from './MovieList';
@@ -84,6 +84,19 @@ export default function App() {
             <h1>Movie Watchlist</h1>
             <MovieList onAdd={handleAdd} />
             <WatchList watchlist={watchlist} onRemove={handleRemove} />
+        </div>
+    )
+}
+*/
+
+// UserFetcher with generic types
+
+import UserFetcher from './UserFetcher';
+
+export default function App() {
+    return (
+        <div>
+            <UserFetcher />
         </div>
     )
 }

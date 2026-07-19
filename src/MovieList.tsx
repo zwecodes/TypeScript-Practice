@@ -1,5 +1,6 @@
 import type { Movie } from './Movie';
 import MovieCard from './MovieCard';
+import { useWatchlist } from './WatchlistContext';
 
 const movies: Movie[] = [
     { id: 1, title: "Inception", director: "Christopher Nolan", year: 2010 },
@@ -8,11 +9,14 @@ const movies: Movie[] = [
     { id: 4, title: "Dune: Part Two", director: "Denis Villeneuve", year: 2024 },
 ];
 
-type MovieListProps = {
-    onAdd: (movie: Movie) => void;
-};
+// type MovieListProps = {
+//     onAdd: (movie: Movie) => void;
+// };
 
-export default function MovieList({ onAdd }: MovieListProps) {
+// export default function MovieList({ onAdd }: MovieListProps) {
+export default function MovieList() {
+    const { dispatch } = useWatchlist();
+
     return (
         <div>
             <h2>Movies</h2>
@@ -22,7 +26,7 @@ export default function MovieList({ onAdd }: MovieListProps) {
                     title={movie.title}
                     director={movie.director}
                     year={movie.year}
-                    onAdd={() => onAdd(movie)}
+                    onAdd={() => dispatch({ type: "ADD", payload: movie})}
                 />
             ))}
         </div>

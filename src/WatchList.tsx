@@ -1,11 +1,13 @@
-import type { Movie } from './Movie';
+import { useWatchlist } from './WatchlistContext';
 
-type WatchListProps = {
-    watchlist: Movie[];
-    onRemove: (id: number) => void;
-};
+// type WatchListProps = {
+//     watchlist: Movie[];
+//     onRemove: (id: number) => void;
+// };
 
-export default function WatchList({ watchlist, onRemove }: WatchListProps) {
+// export default function WatchList({ watchlist, onRemove }: WatchListProps) {
+export default function WatchList() {
+    const { watchlist, dispatch } = useWatchlist();
     return (
         <div>
             <h2>Watchlist</h2>
@@ -16,7 +18,7 @@ export default function WatchList({ watchlist, onRemove }: WatchListProps) {
                     {watchlist.map(movie => (
                         <div key={movie.id}>
                             <p>{movie.title} - {movie.director}</p>
-                            <button onClick={() => onRemove(movie.id)}>Remove</button>
+                            <button onClick={() => dispatch({ type: 'REMOVE', payload: movie.id})}>Remove</button>
                         </div>
                     ))}
                     <p>Total: {watchlist.length} movies</p>

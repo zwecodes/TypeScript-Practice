@@ -91,6 +91,7 @@ export default function App() {
 
 // UserFetcher with generic types
 
+/*
 import UserFetcher from './UserFetcher';
 
 export default function App() {
@@ -98,5 +99,20 @@ export default function App() {
         <div>
             <UserFetcher />
         </div>
+    )
+}
+*/
+
+import { WatchlistProvider } from './WatchlistContext';
+import MovieList from './MovieList';
+import WatchList from './WatchList';
+
+export default function App() {
+    return (
+        <WatchlistProvider>
+            <h1>Movie Watchlist</h1>
+            <MovieList />
+            <WatchList />
+        </WatchlistProvider>
     )
 }

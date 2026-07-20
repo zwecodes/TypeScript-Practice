@@ -103,6 +103,8 @@ export default function App() {
 }
 */
 
+// MOVIE Watchlist
+/*
 import { WatchlistProvider } from './WatchlistContext';
 import MovieList from './MovieList';
 import WatchList from './WatchList';
@@ -114,5 +116,22 @@ export default function App() {
             <MovieList />
             <WatchList />
         </WatchlistProvider>
+    )
+}
+*/
+
+import { NotelistProvider } from './NoteContext';
+import  NoteForm  from './NoteForm';
+import  NoteList  from './NoteList';
+
+export default function App() {
+    return(
+        <NotelistProvider>
+            <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
+                <h1>My Note</h1>
+                <NoteForm />
+                <NoteList />
+            </div>
+        </NotelistProvider>
     )
 }
